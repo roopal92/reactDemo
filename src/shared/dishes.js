@@ -9,19 +9,19 @@ export const DISHES=[
         description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',              
         comments: [
          {
-             comment: 'fsdfndnfdsnffkm',
-             author: 'Roopal',
+             comment: 'waoo',
+             author: 'Chandeler',
              date: 'Oct 27, 2019'
          },
          {
-             comment: 'fsdfndnfdsnffkm',
-             author: 'Roopal',
-             date: 'Oct 27, 2019'
+             comment: 'amazing',
+             author: 'Jay',
+             date: 'Oct 22, 2019'
          },
          {
-             comment: 'fsdfndnfdsnffkm',
-             author: 'Roopal',
-             date: 'Oct 27, 2019'
+             comment: 'great',
+             author: 'joe',
+             date: 'Oct 21, 2019'
          }
      ]  
    },
@@ -34,19 +34,19 @@ export const DISHES=[
         price:'1.99',
         comments: [
          {
-             comment: 'fsdfndnfdsnffkm',
-             author: 'Roopal',
+             comment: 'okish',
+             author: 'Monica',
              date: 'Oct 27, 2019'
          },
          {
-             comment: 'fsdfndnfdsnffkm',
+             comment: 'awesome',
              author: 'Roopal',
-             date: ''
+             date: 'Aug 27, 2012'
          },
          {
              comment: 'fsdfndnfdsnffkm',
-             author: 'Roopal',
-             date: ''
+             author: 'Rachel',
+             date: 'May 27, 2010'
          }
      ],
         description:'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce'                        },

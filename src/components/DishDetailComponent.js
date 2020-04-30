@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component {
-
-   
     comments(comments) {
-        const comment =
-            comments.map((comm) => {
-                return(
-                    <li> {comm.comment}</li>
-                    
-                );}          
-         );
-
-        return(<div><ul>{comment}</ul>  </div>);
+        if (comments != null) {
+            const comment =
+                comments.map((comm) => {
+                    return (
+                        <div>
+                            <div>{comm.comment}</div>
+                            <div>  --  {comm.author}, {comm.date}</div>
+                        </div>
+                    );
+                });
+            return (<div>{comment}  </div>);
+        } else {
+            return (<div></div>);
+        }
     }
     renderDish(dish) {
         if (dish != null) {
