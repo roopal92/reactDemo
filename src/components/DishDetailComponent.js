@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component {
+
+    componentDidMount() {
+        console.log("DishDetail componentDidMount is invoked");
+    }
+
+    componentDidUpdate(){
+        console.log("DishDetail componentDidUpdate is invoked");
+    }
+
     comments(comments) {
         if (comments != null) {
             const comment =
                 comments.map((comm) => {
                     return (
-                        <div>
+                        <div class="container">
                             <div>{comm.comment}</div>
-                            <div>  --  {comm.author}, {comm.date}</div>
+                            <div>  --  {comm.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(comm.date)))}</div>
                         </div>
                     );
                 });
@@ -36,6 +45,7 @@ class DishDetail extends Component {
 
     render() {
         let dish = this.props.dish;
+        console.log("DishDetail render is invoked");
         if (dish != null) {
             return (
                 <div class="container">
