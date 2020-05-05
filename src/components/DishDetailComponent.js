@@ -1,33 +1,21 @@
-import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import React from 'react';
+import { Card, CardImg, CardText, CardBody, CardTitle , BreadcrumbItem, Breadcrumb} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
-class DishDetail extends Component {
-
-    componentDidMount() {
-        console.log("DishDetail componentDidMount is invoked");
-    }
-
-    componentDidUpdate(){
-        console.log("DishDetail componentDidUpdate is invoked");
-    }
-
-    comments(comments) {
-        if (comments != null) {
-            const comment =
-                comments.map((comm) => {
+    function RenderComments({comments}) {
+        if (comments != null) {   
                     return (
                         <div class="container">
-                            <div>{comm.comment}</div>
-                            <div>  --  {comm.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(comm.date)))}</div>
+                            <div>{comments.comment}</div>
+                            <div>  --  {comments.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(comments.date)))}</div>
                         </div>
                     );
-                });
-            return (<div>{comment}  </div>);
         } else {
             return (<div></div>);
         }
     }
-    renderDish(dish) {
+
+    function RenderDish({dish}) {
         if (dish != null) {
             return (
                 <Card body outline color="primary">
@@ -43,28 +31,36 @@ class DishDetail extends Component {
         }
     }
 
-    render() {
-        let dish = this.props.dish;
+    const DishDetail=(props) =>{
+        //let props = this.props;
         console.log("DishDetail render is invoked");
-        if (dish != null) {
+        if (props != null) {
             return (
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-sm-12 col-xs-12 col-md-5 col-1">
-                            {this.renderDish(dish)}
-                        </div>
-                        <div class="col-12 col-sm-12 col-xs-12 col-md-5 col-2">
-                            <h4>Comments</h4>
-                            <div>{this.comments(dish.comments)} </div>
-                        </div>
+                <div className="container">
+                <div className="row">
+                    <Breadcrumb>
+                            {/* we dont require Home here */}
+                        <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                    </Breadcrumb>
+                    <div className="col-12">
+                        <h3>{props.dish.name}</h3>
+                        <hr />
+                    </div>                
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderDish dish={props.dish} />
                     </div>
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderComments comments={props.comments} />
+                    </div>
+                </div>
                 </div>
             );
         } else {
             return (<div></div>);
         }
     }
-
-}
 
 export default DishDetail;
